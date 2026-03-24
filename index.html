@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Career Assistant</title>
+</head>
+<body style="font-family:Arial; text-align:center; background:#f4f4f4;">
+
+<h2>🚀 AI Career Assistant</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="resume" required><br><br>
+    <button type="submit">Analyze Resume</button>
+</form>
+
+<hr>
+
+<h3>💬 Career Chatbot</h3>
+
+<form method="POST">
+    <input type="text" name="chat" placeholder="Ask about career">
+    <button type="submit">Ask</button>
+</form>
+
+{% if chat_response %}
+<p><b>AI:</b> {{ chat_response }}</p>
+{% endif %}
+
+{% if result %}
+<hr>
+<h3>📊 Analysis Report</h3>
+
+<p><b>Skills Found:</b> {{ result.skills }}</p>
+
+<h4>💡 Suggestions</h4>
+<ul>
+{% for s in result.suggestions %}
+<li>{{ s }}</li>
+{% endfor %}
+</ul>
+
+{% endif %}
+
+</body>
+</html>
